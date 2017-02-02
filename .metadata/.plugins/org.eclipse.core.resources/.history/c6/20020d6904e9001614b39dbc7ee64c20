@@ -46,11 +46,17 @@ public class BotListener extends ListenerAdapter{
 		        l = buffer.toString();
 		        
 		        // convert string to json
+		        System.out.println("1");
 		        JSONObject obj = new JSONObject(l);
+		        System.out.println("2");
 		        JSONArray factArr = obj.getJSONArray("facts");
+		        //JSONObject data = obj.getString("name");
+		        //JSONArray arr = obj.getJSONArray("facts");
+		        System.out.println("3");
 		        String fact = factArr.toString(0);
 		        fact = fact.replaceAll("\"", "");
 		        fact = fact.replaceAll("[\\[\\]]", "");
+		        //obj = arr.getJSONObject(0);
 		        
 		        channel.sendMessage(fact).queue();
 		        
