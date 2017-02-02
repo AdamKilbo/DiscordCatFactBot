@@ -1,0 +1,7 @@
+package com.bot.tutorial;
+
+import net.dv8tion.jda.*;
+
+public class BotListener extends ListenerAdapter{
+
+}

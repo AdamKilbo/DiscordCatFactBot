@@ -1,0 +1,62 @@
+package com.bot.tutorial;
+
+import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import java.io.*;
+import java.net.*;
+
+
+public class BotListener extends ListenerAdapter{
+	
+	public void onMessageReceived(MessageReceivedEvent e) {
+		if(e.getMessage().getRawContent().equalsIgnoreCase(">ping")) {
+
+				URL url;
+				try {
+					url = new URL("http://catfacts-api.appspot.com/api/facts");
+				} catch (MalformedURLException e1) {
+					e1.printStackTrace();
+				}
+	
+		        //String query = "{'number': '5'}";
+	
+		        //make connection
+		        HttpURLConnection urlc = (HttpURLConnection) url.openConnection();
+	
+		        // use get mode
+		        try {
+					urlc.setRequestMethod("GET");
+				} catch (ProtocolException e1) {
+					e1.printStackTrace();
+				}
+		        urlc.setDoOutput(true);
+	
+		        // add request header
+		        urlc.setRequestProperty("number", "1");
+		        //urlc.setAllowUserInteraction(false);
+	
+		        int responseCode = null;
+				try {
+					responseCode = urlc.getResponseCode();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+		        System.out.println("sending 'GET' request to URL : " + url);
+		        System.out.println("Response Code : " + responseCode);
+	
+		        //get result
+		        BufferedReader br = new BufferedReader(new InputStreamReader(urlc.getInputStream()));
+		        String l = null;
+		        while ((l=br.readLine())!=null) {
+		            System.out.println(l);
+		        }
+		        br.close();
+
+
+			
+			
+			e.getChannel().sendMessage("Pong!").queue();
+		}
+	}
+	
+}
