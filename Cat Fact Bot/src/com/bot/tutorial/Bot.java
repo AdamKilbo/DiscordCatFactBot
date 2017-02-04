@@ -25,4 +25,3 @@ public class Bot {
 	}
 
 }
-// Mjc2MTkwODgzMzg3NTM5NDcz.C3LnBQ.JJMFfx4hc8LCRDWgQhP8dWH7mQc
