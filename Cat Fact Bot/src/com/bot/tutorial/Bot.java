@@ -12,7 +12,7 @@ public class Bot {
 	
 	public static JDA jda;
 	
-	public static final String BOT_TOKEN = "Mjc2MTkwODgzMzg3NTM5NDcz.C3LnBQ.JJMFfx4hc8LCRDWgQhP8dWH7mQc";
+	public static final String BOT_TOKEN = "/* your bot token goes here */";
 
 	public static void main(String[] args) {
 		
